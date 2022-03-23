@@ -9,5 +9,20 @@ def switch_places!(array, first_index, second_index)
   array[second_index] = first_element
 end
 
-test = [1,2]
-switch_places!(test,0,1)
+def bubble_sort(array)
+  changes_happened = true
+  while changes_happened
+    changes_happened = false
+    (array.length-1).times do |i|
+      if switch?(array[i],array[i+1])
+        changes_happened = true
+        switch_places!(array,i,i+1)
+      end
+    end
+  end
+end
+
+test = [9,2,3,0,1,8,4,1,9]
+p test
+bubble_sort(test)
+p test
